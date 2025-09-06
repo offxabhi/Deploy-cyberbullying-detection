@@ -1,0 +1,17 @@
+# Add requirements.txt
+echo "streamlit==1.22.0
+joblib==1.2.0
+pandas==1.5.3
+matplotlib==3.7.1
+seaborn==0.12.2
+wordcloud==1.9.2
+nltk==3.8.1" > requirements.txt
+
+# Add Procfile
+echo "web: streamlit run app.py --server.port=\$PORT" > Procfile
+
+# Deploy to Heroku
+git add .
+git commit -m "Deploy cyberbullying detector"
+heroku create your-app-name
+git push heroku main
